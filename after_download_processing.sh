@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#this script takes two arguments
+#$1 contains list of old and new names of directories and $2 of files in directories
+
+dirname_list = $1
+filename_list = $2
 #Rename directories
 
 while IFS= read -r line || [ -n "$line" ]; do
@@ -15,9 +20,8 @@ while IFS= read -r line || [ -n "$line" ]; do
         else
             echo "Directory '$old_name' not found or inaccessible"
         fi
- done < ~/myxo_87/GCA_to_tag_list.tsv
+ done < ~/Scripts/bulk-download_processing/dirname_list.txt
  
-
 #Rename subdirectory files
 
 while IFS= read -r line || [ -n "$line" ]
@@ -34,8 +38,7 @@ do
 		mv "$file" "$new_file_name"
 		echo "Renamed file '$file' to '$new_file_name'"
 	done
-done < ~/myxo_87/GCA_to_tag_list_2.tsv
-
+done < ~/Scripts/bulk-download_processing/filename_list.txt
 
 
 #####################to find and move specific files#####################################################################################################
