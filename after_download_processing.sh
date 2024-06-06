@@ -20,7 +20,7 @@ while IFS= read -r line || [ -n "$line" ]; do
         else
             echo "Directory '$old_name' not found or inaccessible"
         fi
- done < ~/Scripts/bulk-download_processing/dirname_list.txt
+ done < dirname_list.txt
  
 #Rename subdirectory files
 
@@ -38,7 +38,7 @@ do
 		mv "$file" "$new_file_name"
 		echo "Renamed file '$file' to '$new_file_name'"
 	done
-done < ~/Scripts/bulk-download_processing/filename_list.txt
+done < filename_list.txt
 
 
 #####################to find and move specific files#####################################################################################################
